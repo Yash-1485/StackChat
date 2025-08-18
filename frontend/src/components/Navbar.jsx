@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router";
 import useAuthUser from "../hooks/useAuthUser";
-import { BellIcon, HomeIcon, LogOutIcon, MessageSquareText, Users } from "lucide-react";
+import { BellIcon, HomeIcon, LogOutIcon, MenuIcon, MessageSquareText, Users, XIcon } from "lucide-react";
 import ThemeSelector from "./ThemeSelector";
 import useLogout from "../hooks/useLogout";
+import { useState } from "react";
 
 const Navbar = () => {
     const { authUser } = useAuthUser();
@@ -15,10 +16,16 @@ const Navbar = () => {
     //   onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
     // });
 
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
     const { logoutMutation } = useLogout();
 
     return (
-        <nav className="bg-base-200 border-b border-base-300 sticky top-0 z-30 h-16 flex items-center">
+        <nav className="bg-base-200 border-b border-base-300 sticky top-0 z-30 h-16 flex items-center w-full">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className={`flex items-center ${isChatPage?"justify-between":"lg:justify-end justify-between"} w-full sm:gap-1 gap-[0.5px]`}>
                 {/* LOGO - ONLY IN THE CHAT PAGE */}
@@ -46,7 +53,14 @@ const Navbar = () => {
                         )
                     }
 
-                    <div className="flex justify-evenly">
+                    <div className="sm:hidden">
+                        <button className="btn btn-ghost btn-circle" onClick={toggleMenu}>
+                            {menuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+                        </button>
+                    </div>
+
+                    {/* Normal Navbar for Larger Screen */}
+                    <div className="sm:flex justify-evenly hidden">
                         <div className={`${isChatPage?"":"lg:hidden"} flex items-center gap-3 sm:gap-4`}>
                             <Link to={"/"}>
                                 <button className="btn btn-ghost btn-circle">
@@ -93,6 +107,109 @@ const Navbar = () => {
                             <LogOutIcon className="w-5 h-5 sm:h-6 sm:w-6 text-base-content opacity-70" />
                         </button>
                     </div>
+
+                    {/* Collapsible Navbar for Small Screens */}
+                    {/* {menuOpen && (
+                        <div className="sm:hidden mt-96 flex flex-col items-start gap-3 px-1" data-theme={theme}>
+                            <Link to={"/"}>
+                                <button className="btn btn-sm btn-ghost">
+                                    <HomeIcon className="w-5 h-5 mr-2" />
+                                    Home
+                                </button>
+                            </Link>
+                            <Link to={"/friends"}>
+                                <button className="btn btn-sm btn-ghost">
+                                    <Users className="w-5 h-5 mr-2" />
+                                    Friends
+                                </button>
+                            </Link>
+                            <Link to={"/notifications"}>
+                                <button className="btn btn-sm btn-ghost">
+                                    <BellIcon className="w-5 h-5 mr-2" />
+                                    Notifications
+                                </button>
+                            </Link>
+                            <Link to={"/profile"}>
+                                <button className="btn btn-sm btn-ghost flex items-center gap-3">
+                                    <div className="block">
+                                        <img src={authUser?.profilePic} alt="Profile" className="rounded-full w-6 h-6" />
+                                    </div>
+                                    Profile
+                                </button>
+                            </Link>
+                            <ThemeSelector />
+                            <button className="btn btn-sm btn-ghost" onClick={logoutMutation}>
+                                <LogOutIcon className="w-5 h-5 mr-2" />
+                                Logout
+                            </button>
+                        </div>
+                    )} */}
+
+                    {menuOpen && (
+                    <div className="sm:hidden absolute top-16 left-0 right-0 bg-base-200 shadow-lg border-t border-base-300 py-2 px-4">
+                        <div className="flex flex-col gap-1">
+                            <Link 
+                                to={"/"} 
+                                className="w-full"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                <button className="btn btn-ghost justify-start w-full rounded-btn">
+                                    <HomeIcon className="w-5 h-5 mr-3" />
+                                    Home
+                                </button>
+                            </Link>
+                            <Link 
+                                to={"/friends"} 
+                                className="w-full"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                <button className="btn btn-ghost justify-start w-full rounded-btn">
+                                    <Users className="w-5 h-5 mr-3" />
+                                    Friends
+                                </button>
+                            </Link>
+                            <Link 
+                                to={"/notifications"} 
+                                className="w-full"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                <button className="btn btn-ghost justify-start w-full rounded-btn">
+                                    <BellIcon className="w-5 h-5 mr-3" />
+                                    Notifications
+                                </button>
+                            </Link>
+                            <Link 
+                                to={"/profile"} 
+                                className="w-full"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                <button className="btn btn-ghost justify-start w-full rounded-btn">
+                                    <div className="avatar mr-2">
+                                        <div className="w-6 rounded-full">
+                                            <img src={authUser?.profilePic} alt="Profile" />
+                                        </div>
+                                    </div>
+                                    Profile
+                                </button>
+                            </Link>
+                            <div className="divider my-0 w-full"></div>
+                            {/* <ThemeSelector /> */}
+                            <div className="py-1 w-full">
+                                <ThemeSelector mobile />
+                            </div>
+                            <button 
+                                className="btn btn-ghost justify-start text-error rounded-btn" 
+                                onClick={() => {
+                                    logoutMutation();
+                                    setMenuOpen(false);
+                                }}
+                            >
+                                <LogOutIcon className="w-5 h-5 mr-3" />
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                    )}
                 </div>
             </div>
         </nav>

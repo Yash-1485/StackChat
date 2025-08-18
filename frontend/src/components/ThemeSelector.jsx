@@ -6,10 +6,13 @@ const ThemeSelector = () => {
     const { theme, setTheme } = useThemeStore();
 
     return (
-        <div className="dropdown dropdown-end">
+        <div className="dropdown sm:dropdown-end dropdown-bottom">
             {/* DROPDOWN TRIGGER */}
-            <button tabIndex={0} className="btn btn-ghost btn-circle">
-                <PaletteIcon className="size-5" />
+            <button tabIndex={0} className="btn btn-ghost btn-circle w-full ml-1 sm:ml-0 sm:mr-6 mr-4">
+                <PaletteIcon className="size-6 mr-2 sm:mr-0" />                
+                <span className="sm:hidden inline">
+                    Themes
+                </span>
             </button>
 
             <div

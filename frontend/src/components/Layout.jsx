@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children, showSidebar = false }) => {
     return (
-        <div className="min-h-screen w-screen">
+        <div className="min-h-screen w-full">
             <div className="flex w-full">
                 {showSidebar && 
                     <div className="hidden lg:block">

@@ -105,7 +105,7 @@ const ChatPage = () => {
 
     return (
         // <div className="h-[91.75vh] relative w-full">
-        <div className="flex flex-col h-[calc(100vh-65px)] relative w-full">
+        <div className="flex flex-col h-[calc(100vh-64px)] relative w-full ">
             <div className="themeToggleBtn absolute right-0 z-10 p-2">
                 <button
                     onClick={() => toggleChatTheme()}

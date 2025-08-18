@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { completeOnboarding } from "../lib/api";
 import toast from "react-hot-toast";
 import { ArrowBigRight, Ban, LoaderCircle, MapPinIcon, MessageSquareText, Pencil, ShuffleIcon } from "lucide-react";
+import { useThemeStore } from "../store/useThemeStore";
 
 const ProfilePage = () => {
     const [isEditing, setIsEditing] = useState(false);
@@ -67,12 +68,14 @@ const ProfilePage = () => {
         profileMutation(profileData);
     }
 
+    const { theme } = useThemeStore();
+
     return (
-        <div className="p-4 sm:p-6 lg:p-8">
+        <div className="p-4 sm:p-6 lg:p-8 bg-base-200 h-full">
             <div className="container mx-auto max-w-4xl space-y-8">
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-6">Profile</h1>
                 
-                <div className="w-full mx-auto p-4 rounded-xl shadow" data-theme="forest">
+                <div className="w-full mx-auto p-4 rounded-xl shadow-lg" data-theme={theme}>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         {/* PROFILE PIC CONTAINER */}
                         <div className="flex flex-col items-center justify-center space-y-3">

@@ -109,16 +109,16 @@ const ChatPage = () => {
             <div className="themeToggleBtn absolute right-0 z-10 p-2">
                 <button
                     onClick={() => toggleChatTheme()}
-                    className={`p-2 rounded-full transition-colors duration-300 ${chatTheme === "dark"
+                    className={`p-2 rounded-full transition-colors duration-300 border-2 border-gray-200 ${chatTheme === "dark"
                             ? "bg-blue-800/20 hover:bg-blue-800/30 text-blue-800"
                             : "bg-yellow-500/70 hover:bg-yellow-600/30 text-yellow-700"
                         }`}
                     aria-label="Toggle theme"
                 >
                     {chatTheme === "dark" ? (
-                        <Moon className="w-5 h-5" />
+                        <Moon className="size-6" />
                     ) : (
-                        <Sun className="w-5 h-5" />
+                        <Sun className="size-6" />
                     )}
                 </button>
             </div>

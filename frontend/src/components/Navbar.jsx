@@ -31,7 +31,7 @@ const Navbar = () => {
                 {/* LOGO - ONLY IN THE CHAT PAGE */}
                     {isChatPage && (
                         <div className="pl-3 sm:pl-5">
-                            <Link to="/" className="flex items-center gap-2.5">
+                            <Link to="/home" className="flex items-center gap-2.5">
                                 <MessageSquareText className="size-5 sm:size-9 text-primary" />
                                 <span className="text-xl sm:text-3xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary  tracking-wider">
                                     StackChat
@@ -62,7 +62,7 @@ const Navbar = () => {
                     {/* Normal Navbar for Larger Screen */}
                     <div className="sm:flex justify-evenly hidden">
                         <div className={`${isChatPage?"":"lg:hidden"} flex items-center gap-3 sm:gap-4`}>
-                            <Link to={"/"}>
+                            <Link to={"/home"}>
                                 <button className="btn btn-ghost btn-circle">
                                     <HomeIcon className="w-5 h-5 sm:h-6 sm:w-6 text-base-content opacity-70" />
                                 </button>

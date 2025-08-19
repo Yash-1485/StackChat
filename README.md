@@ -13,6 +13,7 @@
 - Zustand (Global State for theme, etc.)
 - React Query (Data fetching & caching)
 - Lucide Icons
+- DaisyUI
 
 ### 🧠 Backend
 - Django (with Django REST Framework)

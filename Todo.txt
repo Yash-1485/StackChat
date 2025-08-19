@@ -1,6 +1,0 @@
-Landing Page
-
-ML Models
-- Sentimental Analysis
-- Auto Summarization
-- Organized Chat messages

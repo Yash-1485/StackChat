@@ -1,4 +1,4 @@
-import { MessageSquare } from "lucide-react";
+import { MessageSquareText } from "lucide-react";
 
 const FooterSection = () => {
     return (
@@ -6,7 +6,7 @@ const FooterSection = () => {
             <div className="container mx-auto max-w-7xl">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="flex items-center space-x-2 mb-6 md:mb-0">
-                        <MessageSquare className="text-primary" size={24} />
+                        <MessageSquareText className="text-primary" size={24} />
                         <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                             StackChat
                         </span>

@@ -100,7 +100,7 @@ const OnboardingPage = () => {
                                 value={formState.bio}
                                 onChange={(e) => setFormState({ ...formState, bio: e.target.value })}
                                 className="textarea textarea-bordered h-24 rounded-lg"
-                                placeholder="Tell others about yourself and your language learning goals"
+                                placeholder="Tell others about yourself"
                             />
                         </div>
 

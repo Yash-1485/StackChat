@@ -1,4 +1,4 @@
-import { MessageSquare, Sun, Moon, Menu, X } from 'lucide-react';
+import { MessageSquareText, Sun, Moon, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import ThemeSelector from '../ThemeSelector';
 
@@ -16,7 +16,7 @@ export default function Navbar() {
                     {/* Logo and desktop menu */}
                     <div className="flex items-center">
                         <div className="flex-shrink-0 flex items-center">
-                            <MessageSquare className="text-primary" size={28} />
+                            <MessageSquareText className="text-primary" size={28} />
                             <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                                 StackChat
                             </span>

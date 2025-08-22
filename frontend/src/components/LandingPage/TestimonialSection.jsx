@@ -5,24 +5,24 @@ const TestimonialSection = () => {
     const testimonials = [
         {
             id: 1,
-            name: "Sarah Johnson",
+            name: "Pooja Parekh",
             role: "UX Designer",
             content: "StackChat has transformed how our design team collaborates. The real-time features are incredibly smooth.",
-            avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+            avatar: "https://avatar.iran.liara.run/public/76"
         },
         {
             id: 2,
-            name: "Michael Chen",
+            name: "John Doe",
             role: "Student",
             content: "As someone who chats with friends across timezones, StackChat's reliability is impressive.",
-            avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+            avatar: "https://avatar.iran.liara.run/public/13"
         },
         {
             id: 3,
-            name: "David Wilson",
+            name: "Jane Doe",
             role: "Project Manager",
             content: "The video call quality is better than many dedicated meeting apps we've used professionally.",
-            avatar: "https://randomuser.me/api/portraits/men/67.jpg"
+            avatar: "https://avatar.iran.liara.run/public/83"
         }
     ];
     

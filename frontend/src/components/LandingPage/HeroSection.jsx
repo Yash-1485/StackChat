@@ -35,7 +35,7 @@ const HeroSection = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold">Alex Johnson</h3>
+                                    <h3 className="font-semibold">Yash Parekh</h3>
                                     <p className="text-xs opacity-75">Online</p>
                                 </div>
                             </div>
